@@ -5,10 +5,6 @@ const server = http.createServer((req, res) => {
   console.log(req.url, req.method, req.headers);
 
   if (req.method === "POST" && req.url === "/submit-details") {
-    req.on("data", (chunk) => {
-      console.log(chunk);
-    });
-
     fs.writeFileSync("user-details.txt", "Prashant Jain");
     res.statusCode = 302;
     res.setHeader("Location", "/");
